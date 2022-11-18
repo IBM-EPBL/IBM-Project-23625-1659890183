@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    </head>
+    <body>
+
+   
+{% extends "_Layout.html" %}
+{% block body %}
+
+<div class="p-5">
+    <form class="center" action="http://localhost:5000/register" method="post">
+  <div class="shadow-lg p-5 bg-white rounded">
+    <label class="py-2" style="font-weight:500;font-size:xx-large;">Sign up</label>
+  <div class="form-group">
+  <label >Email</label>
+  <br>
+  <input class="form-control" type="text" name="email" placeholder="Enter email"/>
+  <br>
+  <label >Username</label>
+  <br>
+  <input class="form-control" type="text" name="uname" placeholder="Enter username"/>
+  <br>
+  <label>Password</label>
+  <br>
+  <input class="form-control" type="password" name="pass" placeholder="Enter password"/>
+  <br>
+  <label>Phone no</label>
+  <br>
+  <input class="form-control" type="number" name="phone_no" placeholder="Enter phone no"/>
+  <br>
+  <input type="submit" value="Sign up"  class="btn btn-primary mb-4" style="width:100%"/>
+ <span class="form-control">
+  
+    Already have an account? &nbsp;
+    <a href="/login">login</a>
+  
+ </span>
+  
+</div>
+  
+  </form>
+  </div>
+
+{% endblock %}
+</body>
+</html>
