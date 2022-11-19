@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block head %}
+<title>Signup page</title>
+{% endblock%} {%block body%}
+
+<div  style="width: 500px; margin-left:400px">
+  <h2 class="mx-4 mt-2" style="text-align:center;">REGISTER FORM</h2>
+  <div class="mx-4 mt-2 text-danger">{{ msg }}</div>
+  <form action="{{url_for('signup') }}" method="post">
+    <div class="my-2 mx-4">
+      <label for="username">UserName</label>
+      <input type="text" class="form-control" placeholder="" name="username" required />
+    </div>
+    <div class="my-2 mx-4">
+      <label for="email">FirstName</label>
+      <input type="text" class="form-control" placeholder="" name="firstname" required />
+    </div>
+    <div class="my-2 mx-4">
+      <label for="email">LastName</label>
+      <input type="text" class="form-control" placeholder="" name="lastname" required />
+    </div>
+    <div class="my-2 mx-4">
+      <label for="email">email</label>
+      <input type="text" class="form-control" placeholder="" name="email" required />
+    </div>
+    <div class="my-2 mx-4">
+      <label for="password">password</label>
+      <input type="password" class="form-control" placeholder="" name="password" required />
+    </div>
+    <div class="my-2 mx-4">
+      <label for="retype">retype password</label>
+      <input type="password" class="form-control" placeholder="" name="retype" required />
+    </div>
+    
+    <input type="submit" value="submit" class="btn btn-secondary my-4 my-2 mt-2 mx-4" />
+    <div class="note mt-3 text-center">
+      <!--Register form -->
+      <p style="text-align:center; font-size: 20px;">Already have an account ? please <a href="/login"> Login! </a></p>
+    </div>
+  </form>
+</div>
+
+{% endblock%}

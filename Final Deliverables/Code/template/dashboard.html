@@ -1,0 +1,76 @@
+{% extends 'base2.html'%} {% block head %}
+<title>Dashboard</title>
+{% endblock%} {%block body%}
+<h2 style="font-size: 40px;">Dashboard</h2><br>
+<p style="font-size: 30px; text-align: center;">
+  Displaying our all stocks
+</p><br>
+{% include 'table.html' %}
+<div class="forms-wrapper">
+  <div>
+    
+    <form action="{{url_for('addStocks') }}" method="post">
+      <h3 style="text-align: center;">Add Stock</h3>
+      <div class="my-2 mx-4">
+        <label for="id">Product ID</label>
+        <input type="text" class="form-control" placeholder="" name="id" required />
+      </div>
+      <div class="my-2 mx-4">
+        <label for="pname">Product Name</label>
+        <input type="text" class="form-control" placeholder="" name="pname" required />
+      </div>
+      <div class="my-2 mx-4">
+        <label for="quantity">QUANTITY</label>
+        <input type="number" class="form-control" placeholder="" name="quantity" required />
+      </div>
+      <div class="my-2 mx-4">
+        <label for="price">Price</label>
+        <input type="number" class="form-control" placeholder="" name="price" required />
+      </div>
+      <input type="submit" value="Add" class="btn btn-secondary my-4 mt-2 mx-4"  />
+    </form>
+  </div>
+  <div>
+  <form action="{{url_for('UpdateStocks') }}" method="post">
+    <h3 style="text-align:center;">Update Stock</h3>
+    <div class="my-2 mx-4">
+      <label for="id">Product ID</label>
+      <input type="text" class="form-control" placeholder="" name="id" required />
+    </div>
+    <div class="my-2 mx-4">
+      <label for="pname">Product Name</label>
+      <input type="text" class="form-control" placeholder="" name="pname" required />
+    </div>
+    <div class="my-2 mx-4">
+      <label for="input-field">Choose a field :</label>
+      <select name="input-field" id="field" class="form-control" >
+        <option value="NAME">NAME</option>
+        <option value="PRICE_PER_QUANTITY">PRICE_PER_QUANTITY</option>
+        <option value="QUANTITY">QUANTITY</option>
+      </select>
+    </div>
+    <div class="my-2 mx-4">
+      <label class="custom-label" for="input-value"> Enter Value</label>
+      <input class="form-control" type="text" name="input-value" placeholder=" " />
+    </div>
+    <input type="submit" value="update" class="btn btn-secondary my-4 mt-2 mx-4"  />
+
+  </form>
+</div>
+<div>
+  <form action="{{url_for('deleteStocks') }}" method="post">
+    <h3 style="text-align:center ;">Remove stocks</h3>
+    <div class="my-2 mx-4">
+        <label for="id">Product ID</label>
+        <input type="text" class="form-control" placeholder="" name="id" required />
+      </div>
+      <div class="my-2 mx-4">
+        <label for="pname">Product Name</label>
+        <input type="text" class="form-control" placeholder="" name="pname" required />
+      </div>
+      <input type="submit" value="Delete" class="btn btn-secondary my-4 mt-2 mx-4"  />
+
+  </form>
+</div>
+</div>
+{% endblock%}

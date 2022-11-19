@@ -1,0 +1,69 @@
+{% extends 'base2.html'%} {% block head %}
+<title>Suppliers</title>
+{% endblock%} {%block body%}
+<h2 style="font-size: 40px;">Suppliers</h2><br>
+<p style="font-size: 30px; text-align: center;">
+  Displaying our suppliers details
+</p>
+{% include 'table.html' %}
+<div class="forms-wrapper">
+  <div>
+    <form action="{{url_for('addSupplier') }}" method="post">
+      <h3 style="text-align:center ;">Add Supplier</h3>
+      <div class="my-2 mx-4">
+        <label class="custom-label" for="name">ID</label>
+        <input class="form-control" name="id" type="text" placeholder="" />
+      </div>
+      <div class="my-2 mx-4">
+        <label class="custom-label" for="name">Supplier Name</label>
+        <input class="form-control" name="name" type="text" placeholder="" />
+      </div>
+      <div class="my-2 mx-4">
+        <label class="custom-label" for="quantity">Order ID : </label>
+        <select name="order-id-select" id="field" class="form-control">
+          {% for order_id in order_ids %}
+          <option value="{{ order_id }}">{{order_id}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="my-2 mx-4">
+        <label class="custom-label" for="location"> Location</label>
+        <input class="form-control" type="text" name="location" placeholder="" />
+      </div>
+      <input type="submit" value="Add" class="btn btn-secondary my-4 mt-2 mx-4" />
+    </form>
+  </div>
+  <div>
+
+    <form action="{{url_for('UpdateSupplier') }}" method="post">
+      <h3 style="text-align:center ;">Update Supplier</h3>
+      <div class="my-2 mx-4">
+        <label class="custom-label" for="name"> Name</label>
+        <input class="form-control" type="text" name="name" placeholder="" />
+      </div>
+      <div class="my-2 mx-4">
+        <label for="input-field">Choose a field :</label>
+        <select name="input-field" id="field" class="form-control">
+          <option value="NAME">NAME</option>
+          <option value="LOCATION">LOCATION</option>
+        </select>
+      </div>
+      <div class="my-2 mx-4">
+        <label class="custom-label" for="input-value"> Enter Value</label>
+        <input class="form-control" type="text" name="input-value" placeholder="" />
+      </div>
+      <input type="submit" value="Update" class="btn btn-secondary my-4 mt-2 mx-4" />
+    </form>
+  </div>
+  <div>
+    <form action="{{url_for('deleteSupplier') }}" method="post">
+      <h3 style="text-align:center ;">Delete Supplier</h3>
+      <div class="my-2 mx-4">
+        <label class="custom-label" for="name">Name</label>
+        <input class="form-control" name="name" type="text" placeholder="" />
+      </div>
+      <input type="submit" value="Delete" class="btn btn-secondary my-4 mt-2 mx-4" />
+    </form>
+  </div>
+</div>
+{% endblock%}

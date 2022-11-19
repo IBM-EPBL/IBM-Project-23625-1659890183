@@ -1,0 +1,58 @@
+{% extends 'base2.html'%} {% block head %}
+<title>Orders</title>
+{% endblock%} {%block body%}
+<h2 style="font-size: 40px;">Orders</h2><br>
+<p style="font-size: 30px; text-align: center;">
+  Displaying our orders details
+</p>
+{% include 'table.html' %}
+<div class="forms-wrapper">
+  <div>
+  <form action="{{url_for('createOrder') }}" method="post">
+    <h3 style="text-align:center ;">Create Order</h3>
+    <div class="my-2 mx-4">
+      <label for="id">ORDER ID</label>
+      <input type="text" class="form-control" placeholder="" name="order_id" required />
+    </div>
+    <div class="my-2 mx-4">
+      <label for="id">Stock ID</label>
+      <input type="text" class="form-control" placeholder="" name="stock_id" required />
+    </div>
+    <div class="my-2 mx-4">
+      <label for="quantity">Quantity</label>
+      <input type="number" class="form-control" placeholder="" name="quantity" required />
+    </div>
+    <input type="submit" value="Create" class="btn btn-secondary my-4 mt-2 mx-4"  />
+  </form>
+</div>
+  <form action="{{url_for('updateOrder') }}" method="post">
+    <h3 style="text-align:center ;">Update Order</h3>
+    <div class="my-2 mx-4">
+      <label class="custom-label" for="item">Enter Order ID</label>
+      <input class="form-control" name="item" type="number" placeholder="" />
+    </div>
+    <div class="my-2 mx-4">
+      <label for="custom-label" for="input-field">Choose a field - </label>
+      <select name="input-field" id="field" class="form-control">
+        <option value="STOCKS_ID">STOCKS_ID</option>
+        <option value="QUANTITY">QUANTITY</option>
+      </select>
+    </div>
+    <div class="my-2 mx-4">
+      <label class="custom-label" for="input-value">Enter Value</label>
+      <input class="form-control" type="text" name="input-value" />
+    </div>
+    <input type="submit" value="Update" class="btn btn-secondary my-4 mt-2 mx-4"  />
+
+  </form>
+  <form action="{{url_for('cancelOrder') }}" method="post">
+    <h3 style="text-align:center ;">Cancel Order</h3>
+    <div class="my-2 mx-4">
+      <label class="custom-label" for="item">Enter Order ID</label>
+      <input class="form-control" name="order_id" type="number" placeholder="" />
+    </div>
+    <input type="submit" value="Delete" class="btn btn-secondary my-4 mt-2 mx-4"  />
+
+  </form>
+</div>
+{% endblock%}
